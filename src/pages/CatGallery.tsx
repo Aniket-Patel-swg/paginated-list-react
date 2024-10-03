@@ -7,7 +7,7 @@ import ListView from "../components/common/ListView";
 const CatGallery = () => {
     const [cats, setCats] = useState([]);
     const [page, setPage] = useState(1);
-    const [limit, setLimit] = useState(25);
+    const [limit, setLimit] = useState(10);
     const [order, setOrder] = useState('ASC');
     const [loading, setLoading] = useState(false);
 
@@ -19,7 +19,6 @@ const CatGallery = () => {
             console.log(data);
             setLoading(false);
         }
-
         getCatData();
     }, [page, limit, order]);
 
@@ -44,7 +43,7 @@ const CatGallery = () => {
                 </select>
 
                 <label>Order by</label>
-                <select value={order} onChange={(e) => { setOrder(e.target.value)}} id="">
+                <select value={order} onChange={(e) => { setOrder(e.target.value) }} id="">
                     <option value="ASC">Ascending</option>
                     <option value="DESC">Descending</option>
                     <option value="RAND">Random</option>
