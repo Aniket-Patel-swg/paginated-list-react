@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const FetchCats = async (page = 1, limit = 25, order = 'RAND') => {
+const FetchCats = async (page = 1, limit = 25, order = 'ASC') => {
     try {
         const response = await axios.get('https://api.thecatapi.com/v1/images/search',
             {
