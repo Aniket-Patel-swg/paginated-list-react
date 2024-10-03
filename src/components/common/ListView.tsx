@@ -4,10 +4,11 @@ const ListView = ({ items }: { items: unknown }) => {
     return (
         <>
             <div className="list-wrapper">
-                {Array.isArray(items) && items.map((cat: any) => {
+                {Array.isArray(items) && items.map((animal: any) => {
                     return (
                         <>
-                            {cat.id}
+                            {animal.id}
+                            <br />
                         </>
                     )
                 })}
