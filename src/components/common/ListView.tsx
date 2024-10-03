@@ -1,9 +1,17 @@
 
 
-const ListView = () =>{
-    return(
+const ListView = ({ items }: { items: unknown }) => {
+    return (
         <>
-            <h1>Test</h1>
+            <div className="list-wrapper">
+                {Array.isArray(items) && items.map((cat: any) => {
+                    return (
+                        <>
+                            {cat.id}
+                        </>
+                    )
+                })}
+            </div>
         </>
     )
 }
