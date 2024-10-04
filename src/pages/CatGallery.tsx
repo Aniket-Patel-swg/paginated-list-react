@@ -24,7 +24,7 @@ const CatGallery = () => {
 
     return (
         <>
-            <h1>Display Cats</h1>
+            <h1>Cats Gallery</h1>
             {loading &&
                 <Box sx={{ display: 'flex' }}>
                     <CircularProgress color='secondary' />

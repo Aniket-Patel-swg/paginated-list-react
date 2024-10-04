@@ -5,11 +5,21 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import './css/ListView.css';
+import { useNavigate } from 'react-router-dom';
 
 const ListView = ({ items }: { items: unknown }) => {
 
+    const navigate = useNavigate();
+
+    const handleLearnMore = (animal: any) => {
+        navigate(`/details/${animal.id}`, { state: animal });
+    };
+
     const uniuqueBreeds: unknown[] = []
-    console.log('uniqueBreeds: ', uniuqueBreeds)
+    console.log('unique breeds: ', uniuqueBreeds)
+    const uniqueCategories: unknown[] = []
+    console.log('unique categories: ', uniqueCategories)
+
     return (
         <>
             <div className="list-wrapper">
@@ -20,7 +30,7 @@ const ListView = ({ items }: { items: unknown }) => {
                     }
                     return (
                         <>
-                            <Card sx={{ maxWidth: 345 }}>
+                            <Card sx={{ maxWidth: 345 }} key={animal.id}>
                                 <CardMedia
                                     component="img"
                                     alt="green iguana"
@@ -38,7 +48,7 @@ const ListView = ({ items }: { items: unknown }) => {
                                 </CardContent>
                                 <Typography>alternate name: {animal.breeds[0].alt_names || "No alternate name"}</Typography>
                                 <CardActions>
-                                    <Button size="small">Learn More</Button>
+                                    <Button size="small" onClick={() => handleLearnMore(animal)}>Learn More</Button>
                                 </CardActions>
                             </Card>
                         </>
